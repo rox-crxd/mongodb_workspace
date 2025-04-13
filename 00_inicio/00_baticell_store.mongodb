@@ -1,0 +1,17 @@
+use ("baticell_store")
+
+//crear la coleccion y al menos un documento
+db.producto.insertOne(
+    {
+        name: "Huawei",
+        precio: 3000,
+        cantidad: 50,
+        color: ["rojo", "verde", "negro"]
+    }
+)
+
+//lista de documento
+db.producto.find()
+
+//cuenta los doc de la coleccion produco
+db.producto.find().count()
