@@ -1,0 +1,35 @@
+use("dbClothingStore")
+
+/*db.prendas.updateOne(
+    { _id: ObjectId("67ff03fae8ee95af240e45f3") },
+    {
+        $set: {nombre: "Vestido Elegante"}
+    }
+)*/
+
+
+/*db.prendas.updateOne(
+    {_id: ObjectId("67ff03fae8ee95af240e45f5")},
+    {
+        $set: {p_unitario: 799.00}
+    }
+)*/
+
+//db.prendas.find()
+
+/*db.clientes.updateOne(
+    { _id: "C002"},
+    {
+        $set:{f_nacimiento: "06/06/2006"}
+    }
+)*/
+
+db.clientes.updateOne(
+    { _id: "C001"},
+    {
+        $set:{email: "juan.pe@yahoo.com"}
+    }
+)
+
+db.clientes.find()
+

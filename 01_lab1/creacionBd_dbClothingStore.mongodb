@@ -1,6 +1,6 @@
 use("dbClothingStore")
 
-db.prendas.insertOne(
+/*db.prendas.insertOne(
 
     {
         name: "Camisa formal",
@@ -46,6 +46,6 @@ db.prendas.insertOne(
         stock: 20,
         p_unitario: 299.99
     }
-)
+)*/
 
 db.prendas.find()
