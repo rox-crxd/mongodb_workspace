@@ -1,0 +1,51 @@
+use("dbClothingStore")
+
+db.prendas.insertOne(
+
+    {
+        name: "Camisa formal",
+        marca: "H&M",
+        categoria: ["Ropa Formal", "Camisas", "Hombres"],
+        stock: 50,
+        precioUnit: 35.50,
+    }
+)
+db.prendas.insertOne(
+    {
+        nombre: "Pantalones Jeans",
+        marca: "Levi's",
+        categorias: ["Ropa Casual", "Pantalones", "Unisex"], 
+        stock: 100,
+        p_unitario: 45.00
+    }
+)
+
+db.prendas.insertOne(
+    {
+        nombre: "Vestido de Verano",
+        marca: "Zara",
+        categorias: ["Ropa Casual", "Vestidos", "Mujeres" ],
+        stock: 30,
+        p_unitario: 29.90
+    }
+)
+db.prendas.insertOne(
+    {
+        nombre: "Chompa de Lana",
+        marca: "Uniqlo&M",
+        categorias: ["Ropa de Invierno", "Chompas", "Unisex", "Mujeres" ],
+        stock: 75,
+        p_unitario: 89.99
+    }
+)
+db.prendas.insertOne(
+    {
+        nombre: "Casaca de Cuero",
+        marca: "Gucci",
+        categorias: ["Ropa de Invierno", "Unisex" ],
+        stock: 20,
+        p_unitario: 299.99
+    }
+)
+
+db.prendas.find()

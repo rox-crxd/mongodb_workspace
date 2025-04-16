@@ -1,0 +1,48 @@
+use("dbClothingStore")
+
+db.clientes.insertMany(
+    [
+        {
+            _id: "C001",
+            nombre: "Juan",
+            apellido: "Peréz",
+            f_nacimiento: "15/05/1990",
+            email: "juan.perez@gmail.com",
+            cat_interes: ["Ropa Formal", "Camisas", "Hombres"]
+        },
+        {
+            _id: "C002",
+            nombre: "Ana",
+            apellido: "Goméz",
+            f_nacimiento: "",
+            email: "ana.gomez@outlook.com",
+            cat_interes: ["Ropa Casual", "Vestidos", "Mujeres", "Accesorios"]
+        },
+        {
+            _id: "C003",
+            nombre: "Luis",
+            apellido: "Martinez",
+            f_nacimiento: "30/11/1988",
+            email: "",
+            cat_interes: ""
+        },
+        {
+            _id: "C004",
+            nombre: "Maria",
+            apellido: "López",
+            f_nacimiento: "17/02/1988",
+            email: "maria.lopez@yahoo.com",
+            cat_interes: ["Ropa de Invierno", "Chompas"]
+        },
+        {
+            _id: "C005",
+            nombre: "Sofía",
+            apellido: "Ramirez",
+            f_nacimiento: "25/09/1993",
+            email: "sofia.ramirez@outlook.com",
+            cat_interes: ["Ropa Casual", "Accesorios", "Mujeres"]
+        }
+    ]
+)
+
+db.clientes.find()
