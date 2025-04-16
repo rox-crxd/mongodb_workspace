@@ -1,0 +1,18 @@
+use("dbClothingStore")
+
+//db.prendas.find().limit(3)
+//db.clientes.find().limit(2)
+
+/*db.clientes.find(
+    {},
+    {
+        _id: 0,
+        nombre: 1,
+        apellido: 1,
+        f_nacimiento: 1,
+        cat_interes: 1,
+
+    }
+)*/
+
+db.prendas.find({stock:{$gte:50}})
