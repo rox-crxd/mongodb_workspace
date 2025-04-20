@@ -1,0 +1,37 @@
+// Empezamos a crear una base de datos UrbanStyle Store
+
+use("UrbanStyle_store")
+
+/* $set
+El operador $set se utiliza para actualizar campos específicos de un documento. 
+Si el campo especificado no existe en el documento, $set lo crea y asigna el valor indicado.
+*/
+
+
+// Actualizar los apellidos de Diego Gonzáles por Diego Gonzáles Castañeda
+db.clients.updateOne(
+    {
+        _id: ObjectId('6804549df843f60a6c64b151') // revisar id
+    },
+    {
+        $set: {
+            apellidos: "Gonzáles Castañeda",
+            pais: "Perú"
+        }
+    }
+)
+
+// Listamos el documento para validar la actualización
+// sólo debe mostrar: nombre, apellidos y teléfono
+db.clients.find(
+    {
+        _id: ObjectId('6804549df843f60a6c64b151')
+    },
+    {
+          _id: 0,
+        nombre: 1,
+        apellidos: 1,
+        telefono: 1,
+        pais: 1
+    }
+)
