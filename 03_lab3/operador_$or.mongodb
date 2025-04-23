@@ -1,0 +1,20 @@
+use("UrbanStyle_store")
+
+/* $or
+Evalua dos o más expresiones lógicas, devuelve verdadero si al menos una de ellas se cumple o es verdadera.
+*/
+
+// Lista los productos cuya cantidad sea mayor que 100 o el precio sea menor que 100
+db.products.find(
+    {
+        $or: [{cantidad: { $gt: 100 },
+               precio: { $lt: 100 }}]
+    },
+    {
+        _id: 0,
+        nombre: 1,
+        cantidad: 1,
+        precio: 1
+    }
+
+)
