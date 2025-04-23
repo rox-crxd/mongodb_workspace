@@ -1,0 +1,14 @@
+use("UrbanStyle_store_t2")
+
+print("Elaborado -> Roxana Curo");
+db.vendedores.find(
+    { "metas.clientesNuevos": { $lte: 20 } }, 
+    { 
+        _id: 0,  // Excluye el campo _id
+        nombre: 1, 
+        apellidos: 1, 
+        fechaIngreso: 1 
+    }
+)
+.sort({ "apellidos": -1 })  
+.limit(4) 

@@ -1,0 +1,19 @@
+use("UrbanStyle_store_t2")
+
+print("Elaborado -> Roxana Curo");
+
+db.productos.find(
+    {
+      $or: [
+        { precio: { $gt: 55 } }, 
+        { "especificaciones.color": "Azul" } 
+      ],
+      "especificaciones.temporada": { $ne: "Invierno" } 
+    },
+    {
+      _id: 0,
+      nombre: 1,
+      precio: 1,
+      especificaciones: 1
+    }
+  )

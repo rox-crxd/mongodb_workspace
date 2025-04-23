@@ -1,0 +1,17 @@
+use("UrbanStyle_store_t2")
+
+print("Elaborado -> Roxana Curo");
+
+db.productos.find(
+    {
+      sucursal: "Sucursal Norte",
+      precio: { $gte: 100 }
+    },
+    {
+        _id:1,
+      nombre: 1,
+      marca: 1,
+      talla: 1,
+      precio: 1
+    }
+  )
