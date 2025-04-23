@@ -1,0 +1,19 @@
+use("UrbanStyle_store")
+
+/* $lte
+El operador significa "menor o igual que" (less than or equal). Es parte de los operadores de comparación 
+y se utiliza para encontrar documentos donde el valor de un campo sea menor o igual al valor especificado
+*/
+
+
+//Listar todos los productos cuyo precio es menor o igual que 50
+db.products.find(
+    {precio: {$lte: 50}},
+    {
+        _id: 0,
+        nombre:1,
+        marca:1,
+        precio:1,
+        cantidad: 1
+    }
+)

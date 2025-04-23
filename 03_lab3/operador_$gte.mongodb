@@ -1,0 +1,18 @@
+use("UrbanStyle_store")
+
+/* $gte
+Es un operador de comparación que significa "mayor o igual a" (greater than or equal). 
+Se utiliza para buscar documentos donde el valor de un campo sea mayor o igual al valor especificado.
+*/
+
+
+//Listar todos los productos cuyo precio es mayor o igual que 50
+db.products.find(
+    {precio: {$gte: 50}}, //filtrado
+    {
+        _id:0,
+        nombre: 1,
+        marca: 1,
+        precio: 1
+    }
+)

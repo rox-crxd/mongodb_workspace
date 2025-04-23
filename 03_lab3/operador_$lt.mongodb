@@ -1,0 +1,18 @@
+use("UrbanStyle_store")
+
+/* $lt <
+Es parte de los operadores de comparación y se utiliza para buscar documentos 
+donde el valor de un campo sea menor que (less than) un valor especificado.
+*/
+
+
+//Listar los productos cuya cantidad sea menor que 100
+db.products.find(
+    {cantidad: {$lt: 100}},
+    {
+        _id: 0,
+        nombre: 1,
+        marca: 1,
+        cantidad: 1
+    }
+)

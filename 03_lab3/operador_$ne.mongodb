@@ -1,0 +1,18 @@
+use("UrbanStyle_store")
+
+/* $ne
+Es parte de los operadores de comparación y se utiliza para buscar documentos 
+donde el valor de un campo no sea igual (not equal) al valor especificado.
+*/
+
+
+//Listar todos los productos que no son de tipo "Caballero"
+db.products.find(
+    {tipo: {$ne: "Caballero"}},
+    {
+        _id:0,
+        nombre: 1,
+        marca: 1,
+        tipo: 1
+    }
+).count() //count() es para contar o la cantidad total

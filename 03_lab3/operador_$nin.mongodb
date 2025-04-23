@@ -1,0 +1,19 @@
+use("UrbanStyle_store")
+
+/* $nin
+Significa "no en" (not in) y se utiliza para buscar documentos donde el valor de un 
+campo no coincida con ninguno de los valores en un arreglo dado. Es lo opuesto al operador $in.
+*/
+
+
+//Listar los productos en cuyo tipo de prenda sea "Caballero" y "Niño"
+db.products.find(
+    {tipo: {$nin : ["Caballero", "Niño"]}},
+    {
+        _id: 0,
+        nombre: 1,
+        marca: 1,
+        tipo: 1,
+        cantidad: 1
+    }
+)

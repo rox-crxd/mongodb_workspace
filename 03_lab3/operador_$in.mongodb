@@ -1,0 +1,19 @@
+use("UrbanStyle_store")
+
+/* $in
+Es un operador de comparación que permite buscar documentos 
+donde el valor de un campo coincida con cualquiera de los valores de un arreglo dado. 
+*/
+
+
+//Listar los clientes cuya preferencia sea Dama o Niño
+db.clients.find(
+    {preferencias: {$in: ["Dama", "Niño"]}},
+    {
+        _id:0,
+        nombre:1,
+        apellidos:1,
+        telefono:1,
+        preferencias:1
+    }
+)

@@ -1,0 +1,20 @@
+use("UrbanStyle_store")
+
+/* $gt >
+Es parte de los operadores de comparación y se utiliza para buscar documentos 
+donde el valor de un campo sea mayor que un valor especificado. 
+Es una abreviatura de "greater than" (mayor que).
+*/
+
+
+//Listar todos los productos cuya cantidad sea mayor que 100
+db.products.find(
+    {cantidad: {$gt: 100}}, //filtrado
+    {
+        _id: 0,
+        nombre:1,
+        marca:1,
+        cantidad:1,
+        sucursal: 1
+    }
+)

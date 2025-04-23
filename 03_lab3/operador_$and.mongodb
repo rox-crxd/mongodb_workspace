@@ -1,0 +1,21 @@
+use("UrbanStyle_store")
+
+/* $and
+Valida que dos o más expresiones lógicas sean verdaderas, pero si
+alguna de ellas es falsa pues devuelve falso.
+*/
+
+
+//Lista los productos cuya cantidad(mayor o igual que 100)y precio(menor o igual que 100)
+db.products.find(
+    {
+        $and: [{cantidad: {$gte: 100}}, 
+               {precio: {$lte: 100}}]
+    },
+    {
+        _id: 0,
+        nombre: 1,
+        cantidad: 1,
+        precio: 1
+    }
+)
