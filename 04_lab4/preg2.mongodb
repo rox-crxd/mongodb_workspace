@@ -1,0 +1,36 @@
+use("baticell_store_p1")
+
+db.products.find(
+    {
+        $and: [
+                {"especificaciones.ram": "8 GB"},
+                {precio_unitario: {$gt: 800}},
+                {cantidad: {$gte: 30}}
+              ]
+    },
+    {
+        _id: 1,
+        nombre: 1,
+        descripcion: 1,
+        marca: 1,
+        especificaciones: 1
+    }
+).sort({ marca: -1 })
+
+//Son 2
+
+db.products.find(
+    {
+        $or: [
+            { precio_unitario: { $lte: 900 } },
+            { coloresDisponibles: "negro" }
+        ],
+        marca: { $ne: "OnePlus" }
+    },
+    {
+        _id: 0,
+        nombre: 1,
+        precio_unitario: 1,
+        coloresDisponibles: 1
+    }
+)
