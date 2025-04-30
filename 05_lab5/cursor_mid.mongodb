@@ -1,0 +1,16 @@
+// Empezamos a crear una base de datos
+use("baticell_store_p1")
+
+// Queremos filtrar a los clientes que están activos y tienen más de 200 puntos acumulados. 
+// Luego, proyectamos solo su nombre, apellidos y puntos.
+db.clients.aggregate([
+    { $match: { activo: true, puntos: { $gt: 200 } } },
+    { $project: { _id: 0, nombre: 1, apellidos: 1, puntos: 1 } }
+]).toArray();
+
+
+
+// find es ideal para realizar búsquedas simples y limitar los campos devueltos (proyección). 
+
+// aggregate es mucho más poderoso y flexible porque es un framework que permite realizar operaciones avanzadas en etapas. 
+// Puedes realizar no solo filtros ($match), sino también transformaciones y cálculos con operadores adicionales como $group, $sort, $limit, etc.

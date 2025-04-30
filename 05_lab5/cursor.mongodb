@@ -1,0 +1,17 @@
+/* Cursores
+
+-- Es un objeto temporal que apunta a un conjuto de resultados de una consulta.
+-- Se generan automáticamente cuando haces consultas con métodos como find y/o aggregate. 
+-- Si hay pocos resultados, el cursor devuelve todos los documentos a la vez
+-- Si hay muchos documentos, el cursos devuelve los resultados por lote.
+
+*/
+
+// Empezamos a crear una base de datos Baticell Store
+use("baticell_store_p1")
+
+/* Crear e implementar las siguientes colecciones:
+- clients (OK)
+- products (OK)
+- sellers (OK)
+*/

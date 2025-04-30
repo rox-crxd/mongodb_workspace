@@ -1,0 +1,5 @@
+// Empezamos a crear una base de datos
+use("baticell_store_p1")
+
+//Listado del nombre y apellidos del cliente concatenado, 
+//el nombre del producto que ha comprado, la cantidad y el precio unitario

@@ -1,0 +1,16 @@
+// Empezamos a crear una base de datos
+use("baticell_store_p1")
+
+// Agrupa los productos por cantidad de memoria ram, calcula el total de inventario disponible, 
+// ordena los resultados de mayor a menor cantidad y muestra solo los 3 primeros.
+db.products.aggregate([
+    { $group: { 
+        _id: "$especificaciones.ram", 
+        totalCantidad: { $sum: "$cantidad" } } },
+    { $sort: { totalCantidad: -1 } },
+    { $limit: 3 }
+]).toArray();
+
+// El uso de aggregate es vital en este ejercicio.
+// $group organiza los productos agrupándolos según la cantidad de memoria RAM.
+// $sum: "$cantidad" suma el número total de unidades disponibles en cada grupo de memoria RAM.

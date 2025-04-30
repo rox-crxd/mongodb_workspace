@@ -1,0 +1,11 @@
+// Empezamos a crear una base de datos
+use("baticell_store_p1")
+
+
+// Mostrar todos los productos ordenados a través del precio unitario de manera descendente
+db.products.find(
+    {}, // filtro
+    { _id: 0, nombre: 1, precio_unitario: 1 } // proyección
+).sort(
+    { precio_unitario: -1 } // agregaciones
+).toArray();
