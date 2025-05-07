@@ -1,0 +1,26 @@
+use("baticell_store_p1")
+
+
+// Muestra los clientes con los siguientes datos:
+// Fecha de registro
+// Cantidad de días transcurridos
+// Cantidad de meses transcurridos (30 días)
+// Año en que se registró
+
+db.clients.aggregate([
+    { $project: {
+        _id: 0,
+        cliente: { $concat: ["$nombre", " ", "$apellidos"] }, 
+        fechaRegistroFormateada: { 
+          $dateToString: { format: "%d-%m-%Y", date: "$fechaRegistro" } 
+        }, 
+        diasDesdeRegistro: { 
+          $dateDiff: { startDate: "$fechaRegistro", endDate: "$$NOW", unit: "day" } 
+        }, 
+        mesesDesdeRegistro: { 
+          $dateDiff: { startDate: "$fechaRegistro", endDate: "$$NOW", unit: "month" } 
+        },
+        anioRegistro: { $year: "$fechaRegistro" } 
+      }
+    }
+  ]);
