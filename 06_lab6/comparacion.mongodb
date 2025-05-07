@@ -1,0 +1,32 @@
+
+use("baticell_store");
+
+// 1. $cmp (compara dos valores y devuelve -1, 0 o 1)
+db.products.aggregate([
+  {
+    $project: {
+      nombre: 1,
+      comparacion: { $cmp: ["$precio_unitario", 999.99] },
+    },
+  },
+]); 
+
+// 2. $eq (igualdad)
+db.products.find({ precio_unitario: { $eq: 449.99 } });
+
+// 3. $gt (mayor que)
+db.products.find({ cantidad: { $gt: 25 } });
+
+// 4. $gte (mayor o igual que)
+db.products
+  .find({ precio_unitario: { $gte: 999.99 } })
+  .sort({ precio_unitario: 1 }); 
+
+// 5. $lt (menor que)
+db.products.find({ precio_unitario: { $lt: 2500 } })
+
+// 6. $lte (menor o igual que)
+db.products.find({ cantidad: { $lte: 20 } })
+
+// 7. $ne (no igual)
+db.products.find({ nombre: { $ne: "Google Pixel 5a" } }).sort({ nombre: 1 });

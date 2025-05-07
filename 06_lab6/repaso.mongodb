@@ -1,0 +1,22 @@
+use("baticell_store_p1")
+
+//Une los productos comprados por cada cliente con los detalles del producto desde la coleccion products
+
+db.clients.aggregate([
+    {$unwind: "$historialCompras"},
+    {$lookup: {
+      from: "products",
+      localField: "historialCompras.producto",
+      foreignField: "nombre",
+      as: "productoInfo"
+    }},
+    {$unwind: "$productoInfo"},
+    {$project: {
+      _id: 0,
+      cliente: {$concat: ["$nombre", " ", "$apellidos"]},
+      producto: "$prodcutoInfor.nombre",
+      cantidad: "$historialCompras.cantidad",
+      precio_unitario: "$productoInfo.precio_unitario"
+        } 
+    }
+]);
